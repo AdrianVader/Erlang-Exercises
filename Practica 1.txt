@@ -1,0 +1,59 @@
+Adrián Rabadán jurado.
+
+Ejercicio 1
+
+f(),A=[{math:pow(2,64),muy,"grande"} | [4,5,B=math:pow(A,6)]].
+
+Dice que A no tiene valor porque para asignar un valora a A primero es evalúa la parte derecha,
+ que es donde se usa su propio valor,
+ por tanto no contiene nada en el momento de la evaluación.
+
+Ejercicio 2
+
+f(), {ok, A} = io:read(''), {ok, B} = io:read(''), io:write(A+B), io:format('~n').
+
+Ejercicio 3
+
+f(), S = "string", S =:= lists:reverse(S).% Ejemplo que da false.
+
+f(), S = "oso", S =:= lists:reverse(S).% Ejemplo que da true.
+
+Ejercicio 4
+
+f(), Rev = fun(L) -> L =:= lists:reverse(L) end, Rev("dabalearrozalazorraelabad"). % Ejemplo que da true.
+
+f(), Rev = fun(L) -> L =:= lists:reverse(L) end, Rev([a,bb,bb,a]). % Ejemplo que da true.
+
+f(), Rev = fun(L) -> L =:= lists:reverse(L) end, Rev([a,bb,c,bb]). % Ejemplo que da false.
+
+Ejercicio 5
+
+f(),C = {square,{5,2}, 20}, {_,{_,_},L} = C, math:pow(L,2). % L*L es el area del cuadrado C.
+
+Ejercicio 6
+
+f(), C1 = {square,{5,2}, 20}, C2 = {square,{2,5}, 2}, L = [C1, C2], {value, First} = lists:keysearch({5,2}, 2, L), {_,_,Long} = First, Long*Long.
+
+Ejercicio 7
+
+f(), R = {rectangle, {0,0}, 10, 20}, {_,Pos,A,A} = R, {square,Pos,A}. % Ejemplo que da false.
+
+f(), R = {rectangle, {0,0}, 10, 10}, {_,Pos,A,A} = R, {square,Pos,A}. % Ejemplo que da true.
+
+Ejercicio 8
+
+f(), S1 = {square, {0,0}, 10}, S2 = {square, {0,0}, 10}, {square,{X1,Y1},L1} = S1, {square,{X2,Y2},L2} = S2, (X1 =< X2) and (Y1 >= Y2) and (L1 >= L2). % True.
+
+f(), S1 = {square, {0,0}, 10}, S2 = {square, {0,1}, 10}, {square,{X1,Y1},L1} = S1, {square,{X2,Y2},L2} = S2, (X1 =< X2) and (Y1 >= Y2) and (L1 >= L2). % False.
+
+f(), S1 = {square, {0,0}, 10}, S2 = {square, {0,0}, 11}, {square,{X1,Y1},L1} = S1, {square,{X2,Y2},L2} = S2, (X1 =< X2) and (Y1 >= Y2) and (L1 >= L2). % False.
+
+Ejercicio 9
+
+f(), C = {square, {0,0}, 10}, Cuadrado = fun(Fig) -> element(1,Fig) =:= square end, Cuadrado(C). % True.
+
+f(), C = {rectangle, {0,0}, 10, 10}, Cuadrado = fun(Fig) -> element(1,Fig) =:= square end, Cuadrado(C). % False.
+
+Ejercicio 10
+
+f(), ElevadoA2 = fun(Cuadrado) -> {_,_,L} = Cuadrado, math:pow(L,2) end, Cuadrado = fun(Fig) -> element(1,Fig) =:= square end, Cs = fun(List) -> lists:map(ElevadoA2, lists:filter(Cuadrado, List)) end, Cs([{square,{4,5},5},{rectangle,{0,0},8,8},{square,{1,2},8}]).
